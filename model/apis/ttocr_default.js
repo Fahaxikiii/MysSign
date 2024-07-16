@@ -4,6 +4,8 @@ import ApiBase from './ApiBase.js'
 /* http://www.ttocr.com/ */
 const appkey = ''
 
+// 请搭配 https://github.com/Fahaxikiii/auto_ocr 使用并修改geetest的url
+
 /*
 388	三代全类别	10
 31	三代无感	5
