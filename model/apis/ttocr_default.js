@@ -2,7 +2,7 @@
 import ApiBase from './ApiBase.js'
 
 /* http://www.ttocr.com/ */
-const appkey = 'f9c88382227c62f6e36a3c4a5e1a0fe5'
+const appkey = ''
 
 /*
 388	三代全类别	10
