@@ -2,7 +2,7 @@
 import ApiBase from './ApiBase.js'
 
 /* http://www.ttocr.com/ */
-const appkey = ''
+const appkey = 'f9c88382227c62f6e36a3c4a5e1a0fe5'
 
 /*
 388	三代全类别	10
@@ -21,8 +21,16 @@ export default class TTOCR extends ApiBase {
   constructor (args = {}) {
     super(args, ID, {
       geetest: {
-        url: 'http://api.ttocr.com/api/recognize',
-        query: (data) => { return `appkey=${appkey}&gt=${data.gt}&challenge=${data.challenge}&itemid=${itemid}&referer=https://webstatic.mihoyo.com` },
+        url: 'http://jn.031117.xyz:23333/',
+        body: (data) => { 
+          return {
+            appkey: appkey,
+            gt: data.gt,
+            challenge: data.challenge,
+            itemid: itemid,
+            referer: 'https://webstatic.mihoyo.com' 
+          }
+        },
         HeaderType: 'noHeader'
       },
       times: {
@@ -33,18 +41,18 @@ export default class TTOCR extends ApiBase {
     })
   }
 
-  static async times () {
+static async times () {
     const ttocr = new TTOCR()
     const result = await ttocr.mysApi.getData(ttocr.times_id)
     if (result?.status === 1) {
       return {
         api: ID,
-        integral: result.integral
+        points: result.points,
       }
     } else {
       return {
         api: ID,
-        err_msg: result?.msg || '查询失败'
+        err_msg: result?.msg || '查询失败',
       }
     }
   }
